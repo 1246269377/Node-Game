@@ -1,0 +1,28 @@
+<!DOCTYPE >
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>登录页面</title>
+		<script src="ajax.js"></script>
+		<script>
+			window.onload = function() {
+				var loginBtn = document.getElementById("loginBtn");
+				var username = document.getElementById("username");
+				var password = document.getElementById("password");
+				loginBtn.onclick = function() {
+					
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<form action="/index" method="get">
+			<p><label>用户名：</label><input type="text" name="username" id="username" /></p>
+			<p><label>密码：</label><input type="password" name="password" id="password" /></p>
+			<input id="loginBtn" type="submit" value="登录" />
+		</form>
+	</body>
+
+</html>

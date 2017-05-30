@@ -1,0 +1,65 @@
+<!DOCTYPE >
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<script>
+			window.onload = function() {
+				var _One = document.getElementById("one");
+				var _Two = document.getElementById("two");
+				var _Mid = document.getElementById("mid");
+				var add = document.getElementById("add_btn");
+				var remove=document.getElementById("remove_btn");
+				
+				remove.onclick=function(){
+					for (var i=0;i<50;i++) {
+						remove();
+					}
+					
+					function remove(){
+						var one = Math.floor(Math.random() * 100);
+						var two = Math.floor(Math.random() * 50);
+						if (one<=50) {
+							one=one+50;
+						}
+						if (two<11) {
+							two=11+Math.floor(Math.random() * 13);
+						}
+						console.log(one+"-"+two);
+					}
+				}
+
+				add.onclick = function() {
+					for (var i=0;i<50;i++) {
+						add();
+					}
+
+					function add() {
+						var one = Math.floor(Math.random() * 50)+11;
+						var two = Math.floor(Math.random() * 50)+11;
+						if (one>50) {
+							one-=11;
+						}
+						if (two>50) {
+							two-=11;
+						}
+						_One.value = one;
+						_Two.value = two;
+						console.log(one+"+"+two);
+					}
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" id="one" />
+		<label id="mid">+</label>
+		<input type="text" name="two" id="two" />
+		<button id="add_btn">加法创建</button><br />
+		<button id="remove_btn">减法创建</button>
+	</body>
+
+</html>
