@@ -19,7 +19,7 @@ const db = mysql.createPool({
 });
 
 var server = express();
-server.listen(8080);
+server.listen(80);
 
 //1.解析cookie
 server.use(cookieParser('asdjhwu2y3f8y83efgt44'));
@@ -57,7 +57,7 @@ server.get('/', (req, res)=>{
 });
 
 server.get('/index', (req, res)=>{
-	res.writer("123").end();
+	res.render('index.ejs', {user:req.query});
 });
 
 //6.static数据
