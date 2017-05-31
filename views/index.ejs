@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- 设置初始缩放比例为1.0，使用设备宽度  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<!-- 在iOS下开启全屏模式  -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- 隐藏 Sarafi 状态栏  -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>网页首页</title>
+		<link rel="stylesheet" href="common.css" />
+		<script src="ajax.js"></script>
+		<script>
+			window.onload = function() {
+				var oBtn = document.getElementById("ajaxBtn");
+				oBtn.onclick = function() {
+					ajax({
+							url: '/user',
+							data: {
+								name: 123,
+								pass: 333
+							},
+							type: 'get',
+							success: function(str) {
+								var json = eval('(' + str + ')');
+
+								if(json.ok) {
+									alert('登录成功');
+								} else {
+									alert('注册失败,失败原因:' + json.msg);
+								}
+							},
+							error: function(str) {
+								alert('ajax请求失败，失败原因：');
+								alert(str);
+							}
+						});
+				}
+			}
+		</script>
 	</head>
+
 	<body>
-		<p>欢迎登录测试页面，<%=user.username%></p>
+		<p>欢迎登录测试页面，
+			<%=user.username%>
+		</p>
+		<button id="ajaxBtn">现在来测试一下ajax</button>
 	</body>
+
 </html>

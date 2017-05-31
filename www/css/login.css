@@ -1,0 +1,29 @@
+.loginBtn {
+	width: 100%;
+	background: lightblue;
+}
+
+.title {
+	text-align: center;
+	line-height: 200px;
+	text-shadow: 1px 1px 1px black;
+}
+
+table {
+	margin: 0 auto;
+}
+
+table tr {
+	width: 100%;
+	height: 38px;
+}
+
+table tr td label {
+	display: block;
+	width: 100%;
+	text-align: right;
+}
+
+table tr td input,label,button {
+	height: 100%;
+}

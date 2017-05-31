@@ -15,11 +15,11 @@ const db = mysql.createPool({
 	host: 'localhost',
 	user: 'root',
 	password: '123456',
-	database: 'GameOne'
+	database: 'newgame'
 });
 
 var server = express();
-server.listen(80);
+server.listen(8080);
 
 //1.解析cookie
 server.use(cookieParser('asdjhwu2y3f8y83efgt44'));
@@ -57,8 +57,15 @@ server.get('/', (req, res)=>{
 });
 
 server.get('/index', (req, res)=>{
+	console.log(req.query.username,req.query.password);
 	res.render('index.ejs', {user:req.query});
 });
 
-//6.static数据
+server.get('/user', (req, res)=>{
+	console.log(req.query.name,req.query.pass);
+	res.send();
+	res.end();
+});
+
+//5.static数据
 server.use(static('./www'));

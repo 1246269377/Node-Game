@@ -1,0 +1,21 @@
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { margin:0; padding:0; }
+/* 去掉列表前面的点、数字 */
+ul,ol,dl{list-style: none;}
+/* 重置a标签 */
+a{text-decoration: none;color: #000;}
+
+.wrap{width: 320px;max-width: 720px; margin: 0 auto;background: #ccc;height: 100%;}
+
+
+/* 清理浮动 */
+.fn-clear:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0; }
+.fn-clear { zoom:1; /* for IE6 IE7 */}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide { display:none; }
+
+/* 设置内联, 减少浮动带来的bug */
+.fn-left,.fn-right { display:inline; }
+.fn-left { float:left; }
+.fn-right { float:right; }
