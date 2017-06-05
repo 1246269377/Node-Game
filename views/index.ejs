@@ -15,19 +15,22 @@
 		<script>
 			window.onload = function() {
 				var oBtn = document.getElementById("ajaxBtn");
+				var oUser=document.getElementById('user');
 				oBtn.onclick = function() {
+					alert("oUser.innerHtml");
+					alert(oUser.innerHtml);
 					ajax({
 							url: '/user',
 							data: {
 								name: 123,
-								pass: 333
+								pass: 123
 							},
 							type: 'get',
 							success: function(str) {
 								var json = eval('(' + str + ')');
 
 								if(json.ok) {
-									alert('登录成功');
+									alert('登录成功,返回的用户名为：'+ json.msg);
 								} else {
 									alert('注册失败,失败原因:' + json.msg);
 								}
@@ -44,7 +47,7 @@
 
 	<body>
 		<p>欢迎登录测试页面，
-			<%=user.username%>
+			<span id="user"><%=user.username%></span>
 		</p>
 		<button id="ajaxBtn">现在来测试一下ajax</button>
 	</body>

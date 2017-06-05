@@ -1,35 +1,33 @@
-<!DOCTYPE >
+<!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
-		<title>登录页面</title>
+		<title>注册界面</title>
 		<link rel="stylesheet" type="text/css" href="common.css" />
 		<link rel="stylesheet" type="text/css" href="css/login.css" />
 		<script src="ajax.js"></script>
 		<script>
-			window.onload = function() {
+			window.onload=function(){
 				var o_user = document.getElementById("username");
 				var o_pass = document.getElementById("password");
-				var o_loginBtn = document.getElementById("loginBtn");
+				var o_pass2 = document.getElementById("pass");
 				var o_registBtn=document.getElementById("registBtn");
-				o_loginBtn.onclick = function() {
+				o_registBtn.onclick=function(){
 					if(o_user.value == '') {
 						alert("请输入用户名!");
 					} else if(o_pass.value == '') {
 						alert("请输入密码!");
-					} else {
-						window.location.href=document.URL+'index?username='+o_user.value+'&password='+o_pass.value;
+					} else if(o_pass2.value == '') {
+						alert("请重复密码!");
+					} else if(o_pass.value!=o_pass2.value){
+						alert("两次输入密码不一致!");
+					} else{
+						window.location.href=document.URL+'reigst?act=regist&username='+o_user.value+'&password='+o_pass.value;
 					}
-				}
-				
-				o_registBtn.onclick=function(){
-					
 				}
 			}
 		</script>
 	</head>
-
 	<body>
 		<div class="wrap">
 			<h1 class="title">开始登录</h1>
@@ -51,12 +49,19 @@
 					</td>
 				</tr>
 				<tr>
+					<td>
+						<label>重复密码：</label>
+					</td>
+					<td>
+						<input type="pass" name="pass" id="pass" />
+					</td>
+				</tr>
+				<tr>
 					<td class="loginRow" colspan="2">
-						<button id="loginBtn" class="loginBtn" href="javascript:">登录</button><a id="registBtn" class="registBtn" href="/regist">注册</a>
+						<button id="registBtn" class="loginBtn" href="javascript:">注册</button><a id="loginBtn" class="registBtn" href="/">返回登录</a>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</body>
-
 </html>

@@ -53,19 +53,33 @@ server.engine('html', consolidate.ejs);
 
 //5、接受用户请求
 server.get('/', (req, res)=>{
-	res.render('login.ejs', {});
+	if (req.query.act) {
+		
+	}else{
+		res.render('login.ejs', {});
+	}
+	
+});
+
+server.get('/regist', (req, res)=>{
+	if (req.query.act) {
+		
+	}else{
+		res.render('regist.ejs', {});
+	}
+	
 });
 
 server.get('/index', (req, res)=>{
-	console.log(req.query.username,req.query.password);
+	console.log(req.query);
 	res.render('index.ejs', {user:req.query});
 });
 
-server.get('/user', (req, res)=>{
-	console.log(req.query.name,req.query.pass);
-	res.send();
-	res.end();
-});
+//server.get('/user', (req, res)=>{
+//	console.log(req.query.name,req.query.pass);
+//	res.send({ok:'true',msg:req.query.name});
+//	res.end();
+//});
 
 //5.static数据
 server.use(static('./www'));
